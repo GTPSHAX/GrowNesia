@@ -39,4 +39,4 @@ Bergabunglah dengan komunitas kami untuk berdiskusi dan mendapatkan pembaruan te
 [![Discord](https://img.shields.io/badge/Discord-7289da?style=flat&logo=discord&logoColor=white)](https://discord.gg/invitecode) -->
 
 ## Lisensi
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+Proyek ini dilisensikan di bawah [MIT License](LICENSE.txt).
