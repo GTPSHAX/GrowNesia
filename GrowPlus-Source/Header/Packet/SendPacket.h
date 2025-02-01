@@ -10,7 +10,6 @@ public:
 		std::cout << "Created new packet" << std::endl;
 	}
 	~SendPacket_() {
-		enet_host_flush(this->peer->host);
 		std::cout << "Packet sended!" << std::endl;
 	}
 
