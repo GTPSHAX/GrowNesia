@@ -6,7 +6,6 @@ Proyek ini merupakan ENet server yang bertujuan untuk membuat server game Growto
 
 ## Mengapa Proyek Ini Dibuat?
 Proyek ini dibuat untuk mempermudah coder GTPS Indonesia. Beberapa masalah yang ingin diselesaikan dengan proyek ini antara lain:
-- Kuranganya pemahaman bahasa C++ (Atau bahkan sama sekali tidak tau apa itu CPP?)
 - Penulisan kode lebih mudah dibaca dan dimaintain dengan baik
 - Peforma yang lebih optimal
 
