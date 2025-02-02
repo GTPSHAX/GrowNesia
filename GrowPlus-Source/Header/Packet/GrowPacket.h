@@ -1,7 +1,7 @@
 #pragma once
 
 // Kita include header yang dibutuhkan
-#include <Header/Packet/GamePacket.h>
+#include <Header/Packet/VariantList.h>
 
 class GrowPacket {
 public:

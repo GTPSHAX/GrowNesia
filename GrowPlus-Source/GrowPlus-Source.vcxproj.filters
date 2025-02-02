@@ -107,7 +107,7 @@
     <ClInclude Include="Header\Packet\GrowPacket.h">
       <Filter>Header Files\Packet</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Packet\GamePacket.h">
+    <ClInclude Include="Header\Packet\VariantList.h">
       <Filter>Header Files\Packet</Filter>
     </ClInclude>
     <ClInclude Include="Header\Packet\SendPacket.h">

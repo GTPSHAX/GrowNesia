@@ -4,13 +4,13 @@
 #include <string>
 #include <x64-windows/include/enet/enet.h>
 
-struct GamePacket
+struct VariantList
 {
 private:
 	int index = 0, len = 0;
 	BYTE* packet_data = new BYTE[61];
 public:
-	GamePacket(int delay = 0, int NetID = -1) {
+	VariantList(int delay = 0, int NetID = -1) {
 		len = 61;
 		int MessageType = 0x4, PacketType = 0x1, CharState = 0x8;
 		memset(packet_data, 0, 61);
@@ -20,7 +20,7 @@ public:
 		memcpy(packet_data + 16, &CharState, 4);
 		memcpy(packet_data + 24, &delay, 4);
 	};
-	~GamePacket() {
+	~VariantList() {
 		delete[] packet_data;
 	}
 	void Insert(std::string a) {

@@ -147,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Items\GrowItems.h" />
-    <ClInclude Include="Header\Packet\GamePacket.h" />
+    <ClInclude Include="Header\Packet\VariantList.h" />
     <ClInclude Include="Header\Packet\GrowPacket.h" />
     <ClInclude Include="Header\Packet\SendPacket.h" />
     <ClInclude Include="Header\Player\GrowPlayer.h" />

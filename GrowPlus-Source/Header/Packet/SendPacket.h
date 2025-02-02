@@ -1,7 +1,7 @@
 #pragma once
 
 // Kita include header yang dibutuhkan
-#include <Header/Packet/GamePacket.h>
+#include <Header/Packet/VariantList.h>
 
 class SendPacket_ {
 public:
@@ -15,7 +15,7 @@ public:
 
 	// Mengirimkan pesan ke konsol player
 	void OnConsoleMessage(const std::string ctx) {
-		GamePacket p;
+		VariantList p;
 		p.Insert("OnConsoleMessage");
 		p.Insert(ctx);
 		p.CreatePacket(this->peer);

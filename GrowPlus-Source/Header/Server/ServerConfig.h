@@ -33,7 +33,7 @@ public:
 		return this->serverName;
 	}
 	// Method untuk menimpa value dari nama server
-	void setServerName(std::string& name) {
+	void setServerName(const std::string& name) {	// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 		this->serverName = name;
 		// Void tidak perlu mengembalikan sebuah nilai
 	}
@@ -45,7 +45,7 @@ public:
 		return this->BasePort;	// Nilai yang dikembalikan harus memiliki tipe yang sama
 	}
 	// Method untuk mengatur base port
-	void setBasePort(BASE_PORT port) {
+	void setBasePort(const BASE_PORT& port) {	// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 		this->BasePort = port;
 		// Void tidak perlu mengembalikan sebuah nilai
 	}
@@ -57,7 +57,7 @@ public:
 		return this->SubServer;	// Nilai yang dikembalikan harus memiliki tipe yang sama
 	}
 	//Method untuk mengatur subserver config
-	void setSubServerData(SUBSERVER_DATA Data) {
+	void setSubServerData(const SUBSERVER_DATA& Data) {	// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 		this->SubServer = Data;
 		// Void tidak perlu mengembalikan  sebuah nilai
 	}
@@ -68,26 +68,26 @@ public:
 		return this->maintain;
 	}
 	// Method untuk menimpa value dari maintain
-	void setMaintain(bool& status) {
+	void setMaintain(const bool& status) {	// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 		this->maintain = status;
 		// Void tidak perlu mengembalikan sebuah nilai
 	}
 
 	// Kita buat method untuk clist
 	// Method untuk mendapatkan value dari clist
-	std::vector<std::string> getClist() {
+	std::vector<std::string> getClist() const {	// Const tidak akan mengubah data
 		// Tipe vector seperti array tapi lebih moderen, vector disini memiliki 1 dimensi dengan tipe string (text)
 		return this->clist;	// Nilai yang dikembalikan harus sesuai dengan tipe methodnya
 	}
 	// Method untuk menimpa value dari clist
-	void setClist(std::vector<std::string> clist) {
+	void setClist(const std::vector<std::string>& clist) {	// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 		// Tipe void berarti method ini tidak akan mengembalikan nilai apapun
 		// pada parameter pertama dia memiliki tipe vector seperti array tapi lebih moderen, vector disini memiliki 1 dimensi dengan tipe string (text)
 		this->clist = clist;	// FYI jika kondisinya seperti ini, value dari this->clist sama clist berbeda (walaupun namanya sama) karena letah dari pemosisian dibedakan dengan variabel this
 	}
 
 	// Nah disini kita akan buat method dengan proses paling berat pada class ini, sehingga kita harus memisahkannya pada file yang berbeda, dengan extension cpp
-	void loadConfig(std::string& pathFile);
+	void loadConfig(const std::string& pathFile);// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 private:
 	// Variabel dengan jenis string (text) yang menyimpan nama server
 	std::string serverName;

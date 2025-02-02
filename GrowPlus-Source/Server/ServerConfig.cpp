@@ -7,7 +7,7 @@
 #include <SDK/Proton/TextScanner.h>
 
 // Kemudian kita akan mendefinisikan functionnya beserta kode cppnya, soalnya yang di header kuta cuma membuat sebuah inisialisasi awal/prototype
-void ServerConfig::loadConfig(std::string& pathFile) {
+void ServerConfig::loadConfig(const std::string& pathFile) {	// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
 	TextScanner ctx;
 	ctx.LoadFile(pathFile);
 }
