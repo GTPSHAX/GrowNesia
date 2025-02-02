@@ -140,6 +140,7 @@
     <ClCompile Include="Packet\GrowPacket.cpp" />
     <ClCompile Include="Player\RolePlayer.cpp" />
     <ClCompile Include="Server\GrowServer.cpp" />
+    <ClCompile Include="Server\ServerConfig.cpp" />
     <ClCompile Include="Server\ServerController.cpp" />
     <ClCompile Include="Server\ServerHandler.cpp" />
     <ClCompile Include="Utils\Utils.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Header\Server\ENetHandler.h" />
     <ClInclude Include="Header\Server\ENetServer.h" />
     <ClInclude Include="Header\Server\GrowServer.h" />
+    <ClInclude Include="Header\Server\ServerConfig.h" />
     <ClInclude Include="Header\Server\ServerStruct.h" />
     <ClInclude Include="Header\Utils\ConsoleOutput.h" />
     <ClInclude Include="Header\Utils\GenerateStruct.h" />

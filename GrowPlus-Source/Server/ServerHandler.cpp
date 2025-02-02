@@ -20,7 +20,7 @@ bool ENetHandler::EventConnect() {
 
 		// ini akan dieksekusi kalo server full
 		if (this->server->connectedPeers >= this->getMaxPeers()) {
-			pInfo->SendPacket()->OnConsoleMessage("`4SERVER OVERLOADED`o: Sorry, our servers are currently at max capacity with " + Utils::parseMoney(GrowServer::getOnlinePeers()) + " Online, please try later. We are working to improve this!");
+			pInfo->SendPacket()->OnConsoleMessage("`4SERVER OVERLOADED`o: Sorry, our servers are currently at max capacity with " + Utils::parseMoney(GrowServer::getData().onlinePeer) + " Online, please try later. We are working to improve this!");
 			return false;
 		}
 

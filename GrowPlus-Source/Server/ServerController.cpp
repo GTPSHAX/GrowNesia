@@ -38,7 +38,7 @@ void ENetServer::startService() {
 							/*peer->data = new GrowPlayer(peer, "", "");
 							pInfo(peer)->SendPacket()->OnConsoleMessage("Connected to `wGrowServer ID``, Please wait!");
 							Utils::consoleLog(INF, std::to_string(this->getENet()->connectedPeers));*/
-							GrowServer::setOnlinePeers(GrowServer::getOnlinePeers() + 1);
+							GrowServer::getData().onlinePeer++;
 							if (!this->Handler(peer).EventConnect()) {
 								enet_peer_disconnect_later(peer, 0);
 							}
@@ -60,7 +60,7 @@ void ENetServer::startService() {
 					}
 					case ENET_EVENT_TYPE_DISCONNECT: {	// Disini adalah tempat dimana enet menghandle peer yang terputus dari server
 						Utils::consoleLog(WRN, "Player disconnected!");
-						GrowServer::setOnlinePeers(GrowServer::getOnlinePeers() - 1);
+						GrowServer::getData().onlinePeer--;
 						peer->data = NULL;
 						delete peer->data;
 						break;

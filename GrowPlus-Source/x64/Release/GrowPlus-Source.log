@@ -1,9 +1,11 @@
-﻿  ServerController.cpp
+﻿  main.cpp
+  GrowServer.cpp
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Server\GrowServer.cpp(31,62): warning C4267: 'argument': conversion from 'size_t' to 'uint8_t', possible loss of data
+  ServerConfig.cpp
+  ServerController.cpp
   ServerHandler.cpp
-  Utils.cpp
-  main.cpp
   Generating code
-  8 of 481 functions ( 1.7%) were compiled, the rest were copied from previous compilation.
+  4 of 479 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

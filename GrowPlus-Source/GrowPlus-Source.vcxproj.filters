@@ -69,6 +69,9 @@
     <ClCompile Include="Server\ServerHandler.cpp">
       <Filter>Source Files\Server</Filter>
     </ClCompile>
+    <ClCompile Include="Server\ServerConfig.cpp">
+      <Filter>Source Files\Server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Server\ENetServer.h">
@@ -111,6 +114,9 @@
       <Filter>Header Files\Packet</Filter>
     </ClInclude>
     <ClInclude Include="Header\Server\ENetHandler.h">
+      <Filter>Header Files\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Server\ServerConfig.h">
       <Filter>Header Files\Server</Filter>
     </ClInclude>
   </ItemGroup>
