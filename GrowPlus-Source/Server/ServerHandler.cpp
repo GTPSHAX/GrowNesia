@@ -65,33 +65,6 @@ bool ENetHandler::EventConnect() {
 		std::string packet_loss_str = stream.str(); // Menyimpan hasil konversi dalam bentuk string
 
 		pInfo->SendPacket()->OnConsoleMessage("Your ping: `w" + std::to_string(ping_ms) + "ms ``[`#" + packet_loss_str + "% ``Packet loss]");
-
-		// Set server menjadi penuh (maxPeers = 0) untuk mencegah koneksi baru
-		// GrowServer::getServerByID(1)->setMaxPeers(0);
-
-		if (this->server->connectedPeers >= this->getMaxPeers()) {
-
-			// Loop melalui semua server yang tersedia
-			for (auto* server : GrowServer::getServers()) {
-				// Lewati server yang sedang diproses
-				if (server->getENet() == this->server) {
-					continue;
-				}
-
-				// Cek apakah server lain masih memiliki slot kosong
-				if (server->getENet()->connectedPeers < server->getMaxPeers()) {
-					// Kirim pesan ke pemain bahwa server penuh dan redirect ke server lain
-					pInfo->SendPacket()->OnConsoleMessage("`4FULL OF CAPACITY`o: Sorry, server with ID `w" + std::to_string(currentID) + " ``has reached player limit, redirect to another server...");
-					pInfo->SendPacket()->OnSendToServer(server->getENet(), eLoginMode::CLIENT_LOGIN, "");
-					return true;
-				}
-			}
-
-			// Jika semua server penuh, kirim pesan bahwa server sedang overload
-			pInfo->SendPacket()->OnConsoleMessage("`4SERVER OVERLOADED`o: Sorry, our servers are currently at max capacity with " + Utils::parseMoney(GrowServer::getData().onlinePeer) + " Online, please try later. We are working to improve this!");
-			return false;
-		}
-		Utils::consoleLog(INF, std::to_string(this->server->connectedPeers));
 		return true;
 	}
 	catch (const std::exception& e)

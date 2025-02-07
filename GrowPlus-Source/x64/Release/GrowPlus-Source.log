@@ -1,6 +1,9 @@
-﻿  Generating code
-  0 of 897 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+﻿  DataBase.cpp
+  GenericTextHandler.cpp
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Handler\GenericTextHandler.cpp(42,31): warning C4244: '=': conversion from 'uint16_t' to 'uint8_t', possible loss of data
+  Generating code
+  2 of 2052 functions (<0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    9 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GrowPlus-Source.vcxproj -> C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Core\x64\Release\GrowPlus-Source.exe

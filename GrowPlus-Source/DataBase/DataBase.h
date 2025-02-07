@@ -33,4 +33,4 @@ private:
     std::string hashSalt = "";
 };
 
-static DataBase DB("");
+inline DataBase DB("");

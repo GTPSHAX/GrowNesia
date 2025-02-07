@@ -20,6 +20,15 @@ public:
 		std::cout << "Packet sended!" << std::endl;
 	}
 
+	// save sesi akun
+	void SetHasGrowID(const PlayerCredential& credentials) {
+		VariantList p;
+		p.Insert("SetHasGrowID");
+		p.Insert(credentials.UID ? 1 : 0);
+		p.Insert(credentials.tankIDName);
+		p.Insert(credentials.tankIDPass);
+		p.CreatePacket(this->peer);
+	}
 	// Mengirimkan pesan ke konsol player
 	void OnConsoleMessage(const std::string ctx) {
 		VariantList p;

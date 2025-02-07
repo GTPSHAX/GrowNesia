@@ -1,5 +1,8 @@
 #pragma once
 
+// menghubungkan jeaser yang dibutuhkan 
+#include <Header/Player/GrowPlayer.h>
+
 // class untuk menangani semua database player
 class PlayerDB {
 public:
@@ -12,34 +15,38 @@ public:
 	}
 
 	// method untuk mengecek apakah credentials cocok dengan yang ada pada databse
-	bool checkCredentials(const std::string& growid, const std::string& password) {
+	int checkCredentials(GrowPlayer* pInfo) {
 		// pastikan growid dan password memiliki nilai
-		if (growid.empty() || password.empty()) {
-			return false;
+		if (!isExist(pInfo->getCredentials().tankIDName + "/")) {
+			// database not found
+			return -1;
 		}
 
 		// cek apakah path ditemukan
-		if (!isExist(growid + "/credentials.json")) {
-			return false;
+		if (!isExist(pInfo->getCredentials().tankIDName + "/credentials.json")) {
+			// credentials not found
+			return -2;
 		}
 
 		try
 		{
-			json pData = Utils::readJson(_DATABASE + "players/" + growid + "/credentials.json");
+			json pData = Utils::readJson(_DATABASE + "players/" + pInfo->getCredentials().tankIDName + "/credentials.json");
 
 			// cek apakah passwordnya sama
-			if (Utils::hashWithSHA256(password) == pData["password"] && hashSalt == pData["salt"]) {
+			if (Utils::hashWithSHA256(pInfo->getCredentials().tankIDPass ) == pData["password"] && hashSalt == pData["salt"]) {
 				// disini kita akan mengembalikan true karena passwordnya benar
-				return true;
+				return 1;
 			}
 		}
 		catch (const std::exception& e)
 		{
-			Utils::consoleLog(ERR, "Error while checking credentials for " + growid + ": " + e.what());
+			Utils::consoleLog(ERR, "Error while checking credentials for " + pInfo->getCredentials().tankIDName + ": " + e.what());
+			// error
+			return 0;
 		}
 
 		// kembalikan false karena semua statement salah
-		return false;
+		return -3;
 	}
 private:
 	std::string hashSalt;
