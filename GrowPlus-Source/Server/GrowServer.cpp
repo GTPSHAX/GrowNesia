@@ -3,6 +3,7 @@
 // Pertama kita perlu mendeklarasikan variabel pada GrowServer
 std::vector<ENetServer*> GrowServer::servers = {};
 ServerData GrowServer::Data;
+ServerConfig GrowServer::Config;
 
 // Disini kita akan membuat kode c++/cpp untuk setiap method yang telah didefinisikan pada header GrowServer
 void GrowServer::init(const uint16_t& port, const ServerType& type, const uint8_t maxPeers) {

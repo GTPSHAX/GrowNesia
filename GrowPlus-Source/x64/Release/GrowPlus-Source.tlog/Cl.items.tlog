@@ -1,7 +1,14 @@
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\DataBase\DataBase.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\DataBase.obj
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Handler\GenericTextHandler.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\GenericTextHandler.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Items\ItemsEncoder.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\ItemsEncoder.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\main.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\main.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Packet\GrowPacket.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\GrowPacket.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Player\RolePlayer.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\RolePlayer.obj
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\SDK\Proton\FileSystem\FileManager.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\FileManager.obj
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\SDK\Proton\FileSystem\StreamingInstance.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\StreamingInstance.obj
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\SDK\Proton\FileSystem\StreamingInstanceFile.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\StreamingInstanceFile.obj
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\SDK\Proton\MiscUtils.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\MiscUtils.obj
+C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\SDK\Proton\TextScanner.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\TextScanner.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Server\GrowServer.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\GrowServer.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Server\ServerConfig.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\ServerConfig.obj
 C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\Server\ServerController.cpp;C:\Users\Administrator\Desktop\GrowPlus\GrowPlus-Source\x64\Release\ServerController.obj

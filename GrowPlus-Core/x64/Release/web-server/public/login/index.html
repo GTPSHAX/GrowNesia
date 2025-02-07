@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Dashboard</title>
+    <link rel="icon" type="image/png" href="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/growtopia.ico" sizes="16x16">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .modal-backdrop + div {
+            overflow: auto;
+        }
+    </style>
+</head>
+<body class="w-screen text-gray-200 h-screen flex justify-center items-center bg-none">
+    <div style="transform: scale(0.9);" class="shadow-lg shadow-gray-500/50 p-10 bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 rounded-xl flex flex-col">
+        <div class="flex gap-5 items-center justify-center">
+            <img src="https://data.gtps.pw/assets/logo.png" alt="Logo GrowPlus" class="w-[80px]">
+            <h1 class="text-white font-bold text-[1.5rem]">Login Dashboard</h1>
+        </div>
+        <form method="POST" action="/player/growid/login/validate" accept-charset="UTF-8" role="form" required="required" autocomplete="off">
+            <div class="notif mt-3"></div>
+            <div class="mb-3">
+                <label for="login-name" class="block mb-1 text-sm font-medium">GrowID</label>
+                <input name="growId" type="text" id="login-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="block mb-1 text-sm font-medium">Password (<span class="text-yellow-500">Leave empty to create guest account</span>)</label>
+                <input name="password" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 outline-none">
+            </div>
+            <button type="submit" class="close shadow-lg shadow-dark-500/50 text-white bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-xl sm:w-auto px-[40%] py-3 text-center mt-4">LOGIN</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/vendors/jquery/jquery-2.1.4.min.js"></script>
+    <script>
+        let clicked = false;
+        $('a').click(function () {
+            if (!clicked) {
+                clicked = true;
+                return true;
+            }
+            $(this).attr('onclick', 'return false;');
+        });
+
+        $(document).ready(function () {
+            document.onkeydown = (e) => {
+                const disabledKeys = ["F12", "I", "C", "J", "U"];
+                if (disabledKeys.includes(e.key) || (e.ctrlKey && e.shiftKey && disabledKeys.includes(e.key))) {
+                    e.preventDefault();
+                }
+            };
+
+            // $('.close').on('click', function () {
+            //     window.location = '/player/validate/close';
+            // });
+
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    Array.from(mutation.addedNodes).forEach((node) => {
+                        if (node.tagName === 'DIV') {
+                            const sw = window.screen.width;
+                            if (sw < 667) {
+                                $(node).css({
+                                    transform: 'scale(0.75)',
+                                    'transform-origin': '0 0',
+                                    overflow: 'auto',
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+            });
+        });
+    </script>
+</body>
+</html>

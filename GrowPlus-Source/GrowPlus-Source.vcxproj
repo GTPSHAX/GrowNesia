@@ -75,6 +75,9 @@
     <IncludePath>$(ProjectDir)x64-windows\include;$(ProjectDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)x64-windows\bin;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>false</VcpkgEnabled>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -131,14 +134,25 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Ws2_32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcrypto.lib;libssl.lib;enet.lib;Ws2_32.lib;winmm.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataBase\DataBase.cpp" />
+    <ClCompile Include="Handler\GenericTextHandler.cpp" />
     <ClCompile Include="Items\ItemsEncoder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Packet\GrowPacket.cpp" />
     <ClCompile Include="Player\RolePlayer.cpp" />
+    <ClCompile Include="SDK\Proton\FileSystem\FileManager.cpp" />
+    <ClCompile Include="SDK\Proton\FileSystem\StreamingInstance.cpp" />
+    <ClCompile Include="SDK\Proton\FileSystem\StreamingInstanceFile.cpp" />
+    <ClCompile Include="SDK\Proton\MiscUtils.cpp" />
+    <ClCompile Include="SDK\Proton\TextScanner.cpp" />
     <ClCompile Include="Server\GrowServer.cpp" />
     <ClCompile Include="Server\ServerConfig.cpp" />
     <ClCompile Include="Server\ServerController.cpp" />
@@ -146,10 +160,14 @@
     <ClCompile Include="Utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataBase\DataBase.h" />
+    <ClInclude Include="DataBase\PlayerData.h" />
+    <ClInclude Include="Header\Handler\PacketMessageHandler.h" />
     <ClInclude Include="Header\Items\GrowItems.h" />
+    <ClInclude Include="Header\Packet\PacketEnum.h" />
     <ClInclude Include="Header\Packet\VariantList.h" />
     <ClInclude Include="Header\Packet\GrowPacket.h" />
-    <ClInclude Include="Header\Packet\SendPacket.h" />
+    <ClInclude Include="Header\Packet\GamePacket.h" />
     <ClInclude Include="Header\Player\GrowPlayer.h" />
     <ClInclude Include="Header\Player\PlayerStruct.h" />
     <ClInclude Include="Header\Player\RoleStruct.h" />
@@ -161,6 +179,18 @@
     <ClInclude Include="Header\Utils\ConsoleOutput.h" />
     <ClInclude Include="Header\Utils\GenerateStruct.h" />
     <ClInclude Include="Header\Utils\Utils.h" />
+    <ClInclude Include="SDK\Builders\DialogBuilder.h" />
+    <ClInclude Include="SDK\Builders\WorldOffersBuilder.h" />
+    <ClInclude Include="SDK\HSL.h" />
+    <ClInclude Include="SDK\MD5.h" />
+    <ClInclude Include="SDK\Proton\FileSystem\FileManager.h" />
+    <ClInclude Include="SDK\Proton\FileSystem\FileSystem.h" />
+    <ClInclude Include="SDK\Proton\FileSystem\StreamingInstance.h" />
+    <ClInclude Include="SDK\Proton\FileSystem\StreamingInstanceFile.h" />
+    <ClInclude Include="SDK\Proton\Math.h" />
+    <ClInclude Include="SDK\Proton\MiscUtils.h" />
+    <ClInclude Include="SDK\Proton\TextScanner.h" />
+    <ClInclude Include="SDK\TimeWrapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

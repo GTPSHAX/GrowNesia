@@ -18,7 +18,7 @@ public:
 		Utils::consoleLog(SUC, "[" + std::to_string(server->address.port) + "] ENetHost dibuat.");
 	}
 	~ENetServer() {
-		delete server;
+		delete this->server;
 		Utils::consoleLog(SUC, "[" + std::to_string(server->address.port) + "] ENetHost dihapus.");
 	}
 
@@ -26,13 +26,14 @@ public:
 	uint16_t getID() const { return this->id; }			// Mendapatkan server ID
 	ENetHost* getENet() const { return this->server; }	// Mendapatkan server
 	uint8_t getMaxPeers() const { return this->maxPeers; }	// Method untuk mendapatkan max peers yang dapat terhubung ke server
+	void setMaxPeers(uint8_t amount) { this->maxPeers = amount; }	// Method untuk mengatur kax peers (EXPERIMENTAL ONLY)
 
 	void setPause(bool pause) { this->pauseService = pause; }	// Melakukan set pause service (Kalo true nanti servernya akan berhenti merespon server)
 	bool isPaused() const { return this->pauseService; }	// Method untuk mengecek apakah server sedang di pause apa tidak
 
 	void startService();	// Method untuk memulai server handler
 
-	ENetHandler Handler(ENetPeer* peer) { return ENetHandler(this->server, peer, this->maxPeers); }
+	ENetHandler Handler(ENetPeer* peer, ENetEvent event) { return ENetHandler(this->server, peer, this->maxPeers, event); }
 private:
 	ENetHost* server;
 	ServerType type;

@@ -14,6 +14,7 @@ public:
 	static std::vector<ENetServer*> getServers() { return servers; }	// method untuk mendapatkan semua enet server
 	static ENetServer* getServerByID(uint16_t id);	// Method untuk mendapatkan server berbasis id
 	static ServerData& getData() { return Data; };	// Method untuk mendapatkan data
+	static ServerConfig Config;	// Variabel server config
 private:
 	static std::vector<ENetServer*> servers;	// Semua enet server akan disimpan disin
 	static ServerData Data;	// Data server akan disimpan disini

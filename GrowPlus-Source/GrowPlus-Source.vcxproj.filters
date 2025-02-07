@@ -43,6 +43,27 @@
     <Filter Include="Source Files\Packet">
       <UniqueIdentifier>{911f397c-8014-4f8c-a1ac-59bc65697063}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SDK">
+      <UniqueIdentifier>{bfd4cf50-82cf-46b8-b46c-da1f52b83f6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK\Builders">
+      <UniqueIdentifier>{460bc86a-f54e-43a6-9ee0-c3b31098f42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK\Proton">
+      <UniqueIdentifier>{538667ca-d201-4dda-b90e-d786d3c3a0d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK\Proton\FileSystem">
+      <UniqueIdentifier>{b16fb44f-a1bc-4308-9a92-deb2ba6a8989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Handler">
+      <UniqueIdentifier>{6b6fd6f6-a7dc-4c60-8196-61f9795afbeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Handler">
+      <UniqueIdentifier>{7da263d5-1c2f-4cde-92b3-31f33fd97e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataBase">
+      <UniqueIdentifier>{de0e5c2b-912f-4f90-bee5-8fef9db39281}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,6 +93,27 @@
     <ClCompile Include="Server\ServerConfig.cpp">
       <Filter>Source Files\Server</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Proton\TextScanner.cpp">
+      <Filter>SDK\Proton</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Proton\MiscUtils.cpp">
+      <Filter>SDK\Proton</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Proton\FileSystem\FileManager.cpp">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Proton\FileSystem\StreamingInstance.cpp">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Proton\FileSystem\StreamingInstanceFile.cpp">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Handler\GenericTextHandler.cpp">
+      <Filter>Source Files\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="DataBase\DataBase.cpp">
+      <Filter>DataBase</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Server\ENetServer.h">
@@ -79,9 +121,6 @@
     </ClInclude>
     <ClInclude Include="Header\Server\GrowServer.h">
       <Filter>Header Files\Server</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\Utils\Utils.h">
-      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Header\Utils\ConsoleOutput.h">
       <Filter>Header Files\Utils</Filter>
@@ -110,7 +149,7 @@
     <ClInclude Include="Header\Packet\VariantList.h">
       <Filter>Header Files\Packet</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Packet\SendPacket.h">
+    <ClInclude Include="Header\Packet\GamePacket.h">
       <Filter>Header Files\Packet</Filter>
     </ClInclude>
     <ClInclude Include="Header\Server\ENetHandler.h">
@@ -118,6 +157,57 @@
     </ClInclude>
     <ClInclude Include="Header\Server\ServerConfig.h">
       <Filter>Header Files\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\TimeWrapper.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\MD5.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\HSL.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Builders\DialogBuilder.h">
+      <Filter>SDK\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Builders\WorldOffersBuilder.h">
+      <Filter>SDK\Builders</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\TextScanner.h">
+      <Filter>SDK\Proton</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\Math.h">
+      <Filter>SDK\Proton</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\MiscUtils.h">
+      <Filter>SDK\Proton</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\FileSystem\FileManager.h">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\FileSystem\FileSystem.h">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\FileSystem\StreamingInstance.h">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Proton\FileSystem\StreamingInstanceFile.h">
+      <Filter>SDK\Proton\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Packet\PacketEnum.h">
+      <Filter>Header Files\Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Handler\PacketMessageHandler.h">
+      <Filter>Header Files\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Utils\Utils.h">
+      <Filter>SDK\Proton</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBase\DataBase.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBase\PlayerData.h">
+      <Filter>DataBase</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

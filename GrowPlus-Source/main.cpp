@@ -5,43 +5,9 @@
 #include <Header/Packet/GrowPacket.h>
 #include <Header/Items/GrowItems.h>
 
-#include <openssl/evp.h>
 #include <iomanip>
 #include <sstream>
 #include <thread>
-
-// Fungsi untuk hashing dengan SHA-256 menggunakan EVP
-std::string hashWithSHA256(const std::string& data) {
-	EVP_MD_CTX* context = EVP_MD_CTX_new(); // Alokasikan konteks hash
-	const EVP_MD* md = EVP_sha256();       // Pilih algoritma SHA-256
-	unsigned char hash[EVP_MAX_MD_SIZE];
-	unsigned int hashLength = 0;
-
-	if (EVP_DigestInit_ex(context, md, nullptr) != 1) {
-		EVP_MD_CTX_free(context);
-		throw std::runtime_error("Failed to initialize digest context");
-	}
-
-	if (EVP_DigestUpdate(context, data.c_str(), data.size()) != 1) {
-		EVP_MD_CTX_free(context);
-		throw std::runtime_error("Failed to update digest");
-	}
-
-	if (EVP_DigestFinal_ex(context, hash, &hashLength) != 1) {
-		EVP_MD_CTX_free(context);
-		throw std::runtime_error("Failed to finalize digest");
-	}
-
-	EVP_MD_CTX_free(context); // Bebaskan memori konteks
-
-	// Ubah hasil hash menjadi string heksadesimal
-	std::stringstream ss;
-	for (unsigned int i = 0; i < hashLength; ++i) {
-		ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
-	}
-
-	return ss.str();
-}
 
 BOOL WINAPI ConsoleHandler(DWORD dwType) {
 	switch (dwType) {
@@ -74,29 +40,29 @@ int main(int argc, char* argv[]) {
 
 	try
 	{
-		/*std::string data;
-		std::cout << "Enter data to hash: ";
-		std::cin >> data;
-
-		try {
-			std::string hash = hashWithSHA256(data);
-			std::cout << "SHA-256 Hash: " << hash << std::endl;
-		}
-		catch (const std::exception& e) {
-			std::cerr << "Error: " << e.what() << std::endl;
-		}*/
-
+		// Kita muat semua data yang diperlukan 
 		Utils::consoleLog(INF, "Memuat data...");
+		GrowServer::Config.loadConfig();
 		GrowItems::encodeDat(_DATA + "items/items.json");
 
+		// Inisialisasi enet host
 		Utils::consoleLog(INF, "Inialisasi ENetHost...");
-		GrowServer::init(17000, NORMAL, 0);
-		GrowServer::getServerByID(1)->startService();
-		std::this_thread::sleep_for(std::chrono::seconds(30));
-		GrowServer::getServerByID(1)->setPause(true);
-		std::this_thread::sleep_for(std::chrono::seconds(30));
-		GrowServer::getServerByID(1)->setPause(false);
+		for (uint16_t i = 0; i < GrowServer::Config.getSubServerData().amount; i++) {
+			GrowServer::init(GrowServer::Config.getBasePort().normal + i, NORMAL, GrowServer::Config.getSubServerData().maxConnectedPeer);
+		}
+		if (GrowServer::Config.getBasePort().creative > 0) {
+			for (uint16_t i = 0; i < GrowServer::Config.getSubServerData().amount; i++) {
+				GrowServer::init(GrowServer::Config.getBasePort().creative + i, CREATIVE, GrowServer::Config.getSubServerData().maxConnectedPeer);
+			}
+		}
 
+		// Memulai enet server
+		// Kita loop setiap server yang terdaftar pada growserver
+		for (auto* server : GrowServer::getServers()) {
+			server->startService();
+		}
+
+		// Menjaga agar program utama tidak berhenti 
 		while (true) {
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 		}

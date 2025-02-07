@@ -24,6 +24,21 @@ struct PlayerCredential {	// Struct terpisah yang hanya berisi credentials playe
 	int UID = 0;	// Nomor unik yang berbeda pada setiap player
 };
 
+enum class AccountType {
+	GUEST,
+	NOT_GUEST
+};
+
 struct PlayerData {
-	FarmingSlave Slave;
+	// Temp
+	// Tipe akun
+	AccountType type = AccountType::GUEST;
+	// IP yang dapat berubah ubah
+	std::string dynamicIP = "";
+	// semua packet yang dikirim oleh peer
+	uint16_t allPacketSended = 0;
+	// waktu saat ini
+	std::time_t currentSec = 0;
+
+	FarmingSlave Slave{};
 };

@@ -35,11 +35,8 @@ void ENetServer::startService() {
 						// Disetiap case akan kita berikan sebuat try catch untuk menangani error yang dikembalikan, sehingga tidak menyebabkan program berhenti 
 						try
 						{
-							/*peer->data = new GrowPlayer(peer, "", "");
-							pInfo(peer)->SendPacket()->OnConsoleMessage("Connected to `wGrowServer ID``, Please wait!");
-							Utils::consoleLog(INF, std::to_string(this->getENet()->connectedPeers));*/
 							GrowServer::getData().onlinePeer++;
-							if (!this->Handler(peer).EventConnect()) {
+							if (!this->Handler(peer, event).EventConnect()) {
 								enet_peer_disconnect_later(peer, 0);
 							}
 						}
@@ -54,8 +51,22 @@ void ENetServer::startService() {
 						break;
 					}
 					case ENET_EVENT_TYPE_RECEIVE: {	// Disini adalah tempat dimana enet menghandle packet yang dikirim oleh peer
-
-						enet_packet_destroy(event.packet);	// Menghancurkan packet yang diterima 
+						// Disetiap case akan kita berikan sebuat try catch untuk menangani error yang dikembalikan, sehingga tidak menyebabkan program berhenti 
+						try
+						{
+							if (!this->Handler(peer, event).EventReceive()) {
+								enet_peer_disconnect_later(peer, 0);
+							}
+							enet_packet_destroy(event.packet);	// Menghancurkan packet yang diterima 
+						}
+						catch (const std::exception& e)
+						{
+							Utils::consoleLog(SUC, std::string("[" + std::to_string(this->getID()) + "] Error packet case receiver: ") + e.what());
+						}
+						catch (...)
+						{
+							Utils::consoleLog(SUC, std::string("[" + std::to_string(this->getID()) + "] Error packet case eceive : Tidak diketahui "));
+						}
 						break;
 					}
 					case ENET_EVENT_TYPE_DISCONNECT: {	// Disini adalah tempat dimana enet menghandle peer yang terputus dari server

@@ -87,7 +87,7 @@ public:
 	}
 
 	// Nah disini kita akan buat method dengan proses paling berat pada class ini, sehingga kita harus memisahkannya pada file yang berbeda, dengan extension cpp
-	void loadConfig(const std::string& pathFile);// const berarti membuat nilainya tetap, dan & berarti datanya akan diturunkan secara langsung tanpa dicopy terlebih dahulu 
+	void loadConfig();
 private:
 	// Variabel dengan jenis string (text) yang menyimpan nama server
 	std::string serverName;

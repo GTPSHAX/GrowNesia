@@ -1,0 +1,13 @@
+# Selamat data di config server
+# <- menandakan bahwa text ini merupakan komentar (tidak akan dibaca oleh sistem)
+
+server_name|GrowNesia
+# Sesuai namanya, ini digunakan untuk mengisi nama server
+
+clist|OxygenCode,CarbonCode
+# clist merupakan creator list (role tertinggi yang dapat mengakses segalanya tanpa batasan)
+# untuk menambahkan clist baru silahkan gunakan ',' tanpa adanya spasi
+
+maintain|0
+# 0 = false, 1 = true
+# jika true maka server hanya bisa dimasuki oleh clist

@@ -1,0 +1,10 @@
+base_port_normal|17000
+base_port_creative|18000
+# posrt UDP (base port + enet id) yang akan digunakan setiap enet host
+# jika base creative disi dengan 0 maka akan di disable
+
+subserver|10
+# jumlah sub server yang akan berjalan
+
+maxpeers|25
+# jumlah maksimal leer yang dapat terhubung ke ENetHost lada setiap subserver 
